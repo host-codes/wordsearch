@@ -1,0 +1,329 @@
+* {
+  box-sizing: border-box;
+  -webkit-touch-callout: none; 
+    -webkit-user-select: none;  
+     -khtml-user-select: none;  
+       -moz-user-select: none;  
+        -ms-user-select: none;  
+            user-select: none;  
+}
+
+body,
+html {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  background:#fdfdfd;
+  color: white;
+}
+
+@font-face {
+  font-family: "SVN-Bango";
+  src: url("https://host-codes.github.io/wordsearch/SVN-Bango.otf");
+}
+
+.words {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  color: black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  transform: translateX(-50%);
+  width: 100%;
+}
+
+.words .word {
+  padding: 5px 10px;
+  background: linear-gradient(45deg, #523f3f, #221e1e);
+  border-radius: 50px;
+  text-align: center;
+  margin: 5px;
+  text-transform: uppercase;
+  color: white;
+  font-size: 13px;
+  transition: .2s ease;
+  font-family: 'SVN-Bango';
+}
+
+.word--selected {
+  opacity: .5;
+}
+
+.buttons {
+  position: absolute;
+  top: 85px;
+  right: 110px;
+}
+
+.buttons .button {
+  cursor: pointer;
+}
+
+.canvas--wapper {
+  max-width: 450px;
+  max-height: 800px;
+  height: 100%;
+  position: relative;
+  background: linear-gradient(45deg, #ffffff, #ffb655);
+  margin: 0px auto;
+  overflow: hidden; 
+}
+.screen--manager{
+  display: flex;
+  transform: translateX(0);
+  transition: .2s linear;
+}
+.screen--levels--wapper ,
+.screen--types--wapper,
+.screen--play{
+  width: 100%;  
+  flex-shrink: 0;
+}
+.screen--types--wapper .types,
+.screen--levels--wapper .levels {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.screen--levels--wapper .levels {
+  margin-right: 10px;
+}
+
+.screen--types--wapper .types .type {
+  width: calc(100% / 3 - 20px);
+  padding: 10px;
+  margin: 10px;
+  background: white;
+  border: 1px solid #645a5a;
+  border-radius: 10px;
+  box-shadow: 0px 2px 3px rgb(0 0 0 / 20%);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.screen--levels--wapper .levels .level {
+  width: calc(100% / 4 - 10px);
+  padding: 10px;
+  margin-left: 10px;
+  background: white;
+  border: 1px solid #645a5a;
+  border-radius: 10px;
+  box-shadow: 0px 2px 3px rgb(0 0 0 / 20%);
+  cursor: pointer;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.screen--types--wapper .types .type img,
+.screen--levels--wapper .levels .level img {
+  max-width: 100%;
+  border-radius: 50px;
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 5px;
+  background: #f3f2f5;
+  overflow: hidden;
+}
+
+.screen--types--wapper .types .type div {
+  font-family: "SVN-Bango";
+  font-size: 13px;
+  text-align: center;
+  margin: 10px 0px 0px 0px;
+  padding: 2px;
+  color: rebeccapurple;
+  background: #b3e5fc2b;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.screen--levels--wapper .levels .level div {
+  font-family: "SVN-Bango";
+  margin: 10px 0px 0px 0px;
+  color: #f1f1f1;
+  text-align: center;
+  font-size: 12px;
+  padding: 5px 0px;
+  background: rebeccapurple;
+  border-radius: 4px;
+  box-shadow: 0px 2px 3px rgb(0 0 0 / 20%);
+}
+
+.title {
+  padding: 10px;
+  font-size: 25px;
+  color: rebeccapurple; 
+  text-shadow: 0px 1px 1px rgb(0 0 0 / 50%);
+  text-align: center;
+  margin-bottom: 15px;
+  padding-top: 25px;
+  font-weight: bold;
+  font-family: "SVN-Bango";
+}
+
+.screen--title{
+ display: flex;
+ align-items: center;
+}
+
+.lock {
+  position: relative;
+}
+
+.lock:before {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  content: "";
+  background-image: url(https://host-codes.github.io/wordsearch/img/lock.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.screen--buttons {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px 10px 0px 0px;
+}
+
+.screen--play {
+  position: relative;
+}
+
+.screen--play .screen--top {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px; 
+}
+
+.screen--top .top--wapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+}
+
+.screen--top .top--wapper .top--right {
+  display: flex;
+}
+
+.screen--top .top--wapper .top--right .button {
+  margin-left: 20px;
+}
+
+.timer {
+  font-family: "SVN-Bango";
+  color: black;
+  font-size: 20px;
+}
+
+.button {
+  cursor: pointer;
+}
+
+
+
+.screen--title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.block--gameover,
+.block--gamewin {
+  position: absolute;
+  width: 250px;
+  height: 125px;
+  border: 4px solid #105f5f;
+  box-shadow: 0px 2px 2px rgb(0 0 0 / 50%);
+  z-index: 200;
+  border-radius: 10px;
+  background: white;
+  top: 50%;
+  left: 250%;
+  transition: .2s linear;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+}
+
+.block--gameover .block--title, 
+.block--gamewin .block--title {
+    color: #0b6152;
+    font-family: "SVN-Bango";
+    font-size: 35px;
+    text-align: center;
+    margin: 5px 0px;
+    text-shadow: 2px -1px 6px rgb(0 0 0);
+    background-color: #fdd6a4;
+}
+
+.block-buttons {
+  display: flex;
+  justify-content: center;
+  height: 60px;
+  align-items: center;
+}
+
+.block-buttons .button {
+  margin: 0px 10px;
+}
+
+.block--gamewin.active ,
+.block--gameover.active{
+  transform: translate(-50%, -50%) scale(1) !important;
+  opacity: 1 !important;
+}
+.bg--lock{ 
+  position: absolute;
+  left: 200%;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  display: none;
+  background: rgba(0,0,0,0.3);
+}
+#audio-mute{
+ display: none;
+}
+#game--play{
+ display: none;
+}
+.link{
+ position: absolute;
+ padding:2px 5px;
+ border-radius: 5px;
+ top: 50px;
+ left: 10px;
+ font-family: "SVN-Bango";
+ font-size: 12px;
+ color: black;
+ border: 1px solid rgba(0,0,0,.4);
+}
+
+.scrollable{
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+
+ 
+.scrollable::-webkit-scrollbar {
+  width: 2px;
+} 
+.scrollable::-webkit-scrollbar-track {
+  background: #f1f1f1;
+} 
+.scrollable::-webkit-scrollbar-thumb {
+  background: #888;
+} 
+.scrollable::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
